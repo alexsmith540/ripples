@@ -1,0 +1,15 @@
+{
+  "name": "three-orbit-controls",
+  "homepage": "https://github.com/mattdesl/three-orbit-controls",
+  "version": "81.1.0",
+  "_release": "81.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v81.1.0",
+    "commit": "f7703452f6373d870e9e5bae4df46e7b53a4aa3e"
+  },
+  "_source": "https://github.com/mattdesl/three-orbit-controls.git",
+  "_target": "~81.1.0",
+  "_originalSource": "https://github.com/mattdesl/three-orbit-controls.git",
+  "_direct": true
+}

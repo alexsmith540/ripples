@@ -1,0 +1,11 @@
+{
+  "name": "MaskPass",
+  "_cacheHeaders": {
+    "Last-Modified": "Thu, 22 Dec 2016 08:47:06 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "https://threejs.org/examples/js/postprocessing/MaskPass.js",
+  "_target": "*",
+  "_originalSource": "https://threejs.org/examples/js/postprocessing/MaskPass.js"
+}

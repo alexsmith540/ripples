@@ -1,0 +1,10 @@
+{
+  "name": "tween",
+  "_cacheHeaders": {
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "https://github.com/tweenjs/tween.js",
+  "_target": "*",
+  "_originalSource": "https://github.com/tweenjs/tween.js"
+}

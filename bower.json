@@ -1,0 +1,38 @@
+{
+  "name": "spirals",
+  "version": "0.0.0",
+  "authors": [
+    "Alex Smith <alexsmith_540@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ConvolutionShader": "https://threejs.org/examples/js/shaders/ConvolutionShader.js",
+    "CopyShader": "https://threejs.org/examples/js/shaders/CopyShader.js",
+    "EffectComposer": "https://threejs.org/examples/js/postprocessing/EffectComposer.js",
+    "FXAAShader": "https://threejs.org/examples/js/shaders/FXAAShader.js",
+    "HDRCubeTextureLoader": "https://threejs.org/examples/js/loaders/HDRCubeTextureLoader.js",
+    "MaskPass": "https://threejs.org/examples/js/postprocessing/MaskPass.js",
+    "LuminosityHighPassShader": "https://threejs.org/examples/js/shaders/LuminosityHighPassShader.js",
+    "OrbitControls": "https://threejs.org/examples/js/controls/OrbitControls.js",
+    "PMREMCubeUVPacker": "https://threejs.org/examples/js/pmrem/PMREMCubeUVPacker.js",
+    "PMREMGenerator": "https://threejs.org/examples/js/pmrem/PMREMGenerator.js",
+    "RGBELoader": "https://threejs.org/examples/js/loaders/RGBELoader.js",
+    "RenderPass": "https://threejs.org/examples/js/postprocessing/RenderPass.js",
+    "ShaderPass": "https://threejs.org/examples/js/postprocessing/ShaderPass.js",
+    "UnrealBloomPass": "https://threejs.org/examples/js/postprocessing/UnrealBloomPass.js",
+    "dat.gui.min": "https://threejs.org/examples/js/libs/dat.gui.min.js",
+    "moment": "~2.17.1",
+    "three": "https://threejs.org/build/three.js",
+    "tween.js": "https://github.com/tweenjs/tween.js.git#~16.3.5",
+    "tween": "https://github.com/tweenjs/tween.js"
+  },
+  "homepage": "https://github.com/politear/labs-sandbox",
+  "private": true
+}

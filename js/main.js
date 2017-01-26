@@ -60,7 +60,7 @@ var Sounds = function(){
   this.spotLight.penumbra = 0.8;
   this.spotLight.castShadow = true;
   this.scene.add( this.spotLight );
-
+  this.allOscillators = []; //for mobile...
   standardMaterial = new THREE.MeshStandardMaterial( {
     map: null,
     color: 0x666666,
@@ -124,7 +124,7 @@ var Sounds = function(){
   
   gui.close()
   // create web audio api context
-  this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  this.audioCtx = new (window.AudioContext || window.webkitAudioContext);
   this.mainVolume = this.audioCtx.createGain();
   
   this.mainVolume.connect(this.audioCtx.destination)
@@ -134,6 +134,7 @@ var Sounds = function(){
   var num = 7.83; //schumann fundamental: https://en.wikipedia.org/wiki/Schumann_resonances
   num = num - (num*0.11);
   var scaleValues = [174,285,396,417,528,639,741,852,963];//solfeggio scales
+  _this.solfeggio = scaleValues.slice(0); //clone of original bunch, mobile has oscillator limit$
   scaleValues = scaleValues.concat([174-num,285-num,396-num,417-num,528-num,639-num,741-num,852-num,963-num])//give it a little more grit to the ears with +/- 11% of schumann fundamental
   scaleValues = scaleValues.concat([174+num,285+num,396+num,417+num,528+num,639+num,741+num,852+num,963+num])//give it a little more grit to the ears with +/- 11% of schumann fundamental
   
@@ -148,7 +149,14 @@ var Sounds = function(){
     this.createPair(v,num*scale,i/scaleValues.length);
     this.createPair(v2,num*highscale,i/scaleValues.length);
   }
-  
+  document.getElementById('play').addEventListener('click',function(){
+    var sliced = _this.allOscillators.slice(0,_this.solfeggio.length*4);
+    sliced.forEach(function(osc,i){
+      if (osc.noteOn) osc.start = osc.noteOn
+      osc.start(0);
+    })
+    $('#play').hide();
+  },false);
 }
 Sounds.prototype.createPair = function(frequency,diff,deg){
   var sound1Material = new THREE.MeshBasicMaterial({color:0x666699,wireframe:true,opacity:0.5,transparent:true});
@@ -163,7 +171,8 @@ Sounds.prototype.createPair = function(frequency,diff,deg){
   };
   sound1.oscillator.type = this.waveType;
   sound1.oscillator.frequency.value = frequency; // value in hertz
-  sound1.oscillator.start();
+  //sound1.oscillator.start();
+  _this.allOscillators.push(sound1.oscillator)
   sound1.panner = this.audioCtx.createPanner();
   sound1.oscillator.connect(sound1.volume);
   sound1.volume.connect(sound1.panner);
@@ -182,7 +191,8 @@ Sounds.prototype.createPair = function(frequency,diff,deg){
   };
   sound2.oscillator.type = this.waveType;
   sound2.oscillator.frequency.value = frequency+diff; // value in hertz
-  sound2.oscillator.start();
+  //sound2.oscillator.start();
+  _this.allOscillators.push(sound2.oscillator)
   sound2.panner = this.audioCtx.createPanner();
   sound2.oscillator.connect(sound2.volume);
   sound2.volume.connect(sound2.panner);
